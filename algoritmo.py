@@ -17,7 +17,7 @@ def listar_apartamentos(hotel):
     return quartos_disponiveis
 
 
-for numero_quarto in range(1, 5):
+for numero_quarto in range(1, 7):
     hotel.adicionar_quarto(ApartamentoSimples(numero_quarto))
     hotel.adicionar_quarto(ApartamentoSimplesCasal(numero_quarto))
     hotel.adicionar_quarto(ApartamentoDuplo(numero_quarto))
@@ -28,6 +28,7 @@ for numero_quarto in range(1, 5):
 def fazer_reserva(hotel):
     nome_cliente = input("Digite seu nome: ")
     quant_dias = int(input("Duração da estadia (em dias): "))
+    print("[1] Ap Simples \n[2] Ap Simples Casal \n[3] Ap Duplo \n[4] Ap Duplo Casal \n[5] Ap Luxo \n[6] Ap Master")
     
     quartos_disponiveis = hotel.listar_quartos_disponiveis()
     
