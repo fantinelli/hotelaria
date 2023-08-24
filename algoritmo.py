@@ -27,11 +27,12 @@ for numero_quarto in range(1, 5):
 def fazer_reserva(hotel):
     nome_cliente = input("Digite seu nome: ")
     quant_dias = int(input("Duração da estadia (em dias): "))
+    quarto_desejado =  int(input("Qual quarto deseja: "))
 
     quartos_disponiveis = hotel.listar_quartos_disponiveis()
     
     if quartos_disponiveis:
-        quarto_escolhido = quartos_disponiveis[0]  # Escolhe o primeiro quarto disponível
+        quarto_escolhido = quartos_disponiveis[quarto_desejado]  # Escolhe o primeiro quarto disponível
         valor_total = quarto_escolhido.preco * quant_dias
         quarto_escolhido.esta_reservado = True
 
