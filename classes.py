@@ -30,7 +30,8 @@ class Quartos:
 
 class ApartamentoSimples(Quartos):
     def __init__(self, numero):
-        super().__init__(numero, capacidade=1, preco=150)
+        super().__init__(numero, capacidade=1, preco=150) 
+# o "super()" que nós utilizamos é para acessar os métodos e atributos da classe pai "Quartos" em uma hierarquia
 
 class ApartamentoSimplesCasal(Quartos):
     def __init__(self, numero):
