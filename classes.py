@@ -39,7 +39,7 @@ class Quartos:
         return not self.esta_reservado
 
     def obter_detalhes_quarto(self):
-        return f"Quarto {self.numero} - Capacidade: {self.capacidade} pessoas, Preço: {self.preco} por noite"
+        return f"Apartamento {self.numero} - Capacidade: {self.capacidade} pessoas, Preço: {self.preco} por noite"
 
 
 class ApartamentoSimples(Quartos):
