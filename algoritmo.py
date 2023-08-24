@@ -1,9 +1,16 @@
 from classes import *
+import os
 
 hotel = Hotel("Enchanted Echo Resort")
 
 def descrição_hotel():
     print("Nosso hotel: \n \n Bem-vindo ao Enchanted Echo Resort, onde a magia encontra o conforto. \n Situado em um cenário deslumbrante, nosso resort oferece uma experiência encantadora que combina luxo com natureza. \n Cada detalhe do nosso espaço, desde a arquitetura até os jardins bem cuidados, é projetado para criar uma atmosfera mágica e relaxante. \n Nossos quartos e suítes foram concebidos para serem verdadeiros refúgios, com decoração elegante e conforto incomparável. \n As vistas panorâmicas da natureza exuberante que nos rodeia são um espetáculo à parte. \n O Enchanted Echo Resort é o lugar perfeito para se desconectar do mundo e se conectar com a serenidade da natureza.")
+
+def listar_apartamentos():
+    quartos_disponiveis = hotel.listar_quartos_disponiveis()
+    for quarto in quartos_disponiveis:
+        print(quarto.obter_detalhes_quarto())
+
 
 for numero_quarto in range(1, 5):
     hotel.adicionar_quarto(ApartamentoSimples(numero_quarto))
@@ -34,7 +41,16 @@ def main():
             escolha = int(input("> "))
 
             if escolha == 1:
+                os.system("cls")
                 descrição_hotel()
+                os.system("pause")
+                os.system("cls")
+
+            elif escolha == 2:
+                os.system("cls")
+                listar_apartamentos()
+                os.system("pause")
+                os.system("cls")
 
         except ValueError:
             print('Problema: Digito não correspondente/ Opção Indisponível')
