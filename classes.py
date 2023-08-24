@@ -31,7 +31,6 @@ class Quartos:
 class ApartamentoSimples(Quartos):
     def __init__(self, numero):
         super().__init__(numero, capacidade=1, preco=150)
-        super().__init__(numero, capacidade=1, preco=150) 
 
     def info():
         print("Um quarto simples de hotel, com uma atmosfera acolhedora e funcional. Mobília essencial inclui \numa confortável cama de solteiro com lençóis limpos e macios. Uma pequena mesa de trabalho fica \nao lado da janela, que oferece uma vista discreta. No canto, encontra-se um banheiro compacto \ncom chuveiro, toalhas limpas e amenidades básicas.")
