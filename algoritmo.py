@@ -13,6 +13,19 @@ for numero_quarto in range(1, 5):
     hotel.adicionar_quarto(ApartamentoLuxo(numero_quarto))
     hotel.adicionar_quarto(ApartamentoMaster(numero_quarto))
 
+def reserva(Hotel):
+    nome_cliente: input("Digite seu nome: ")
+    quant_dias : int(input("Tempo de hospedagem: "))
+
+    quarto_encontrado = hotel.adicionar_reserva(nome_cliente)
+    if  quarto_encontrado:
+        quarto_ocupado = remove.numero_quarto
+        valor_quarto * quant_dias == valor_total
+        print(f" Olá! {nome_cliente}! Você concluiu sua reserva por R${valor_total}, tenha uma boa estadia!!")
+    else:
+        print("Quartos indisponiveis")
+
+
 def main():
     while True:
         try:
