@@ -29,33 +29,35 @@ def fazer_reserva(hotel):
     nome_cliente = input("Digite seu nome: ")
     quant_dias = int(input("Duração da estadia (em dias): "))
     
-    quartos_disponiveis = listar_apartamentos(hotel) 
+    quartos_disponiveis = hotel.listar_quartos_disponiveis()
     
     if quartos_disponiveis:
+        print("Quartos disponíveis:")
+        for i, quarto in enumerate(quartos_disponiveis):
+            print(f"{i+1}. {quarto.obter_detalhes_quarto()}")
+        
         escolha = int(input("Digite o número do quarto desejado: "))
         
         if 1 <= escolha <= len(quartos_disponiveis):
             quarto_escolhido = quartos_disponiveis[escolha - 1]
             valor_total = quarto_escolhido.preco * quant_dias
-            quarto_escolhido.esta_reservado = True
-
-            print(f"Olá, {nome_cliente}! Sua reserva foi feita por R${valor_total}. Tenha uma ótima estadia!")
+            
+            if hotel.reservar_quarto(quarto_escolhido.numero):
+                print(f"Olá, {nome_cliente}! Sua reserva foi feita por R${valor_total}. Tenha uma ótima estadia!")
+            else:
+                print("Quarto já está reservado.")
         else:
             print("Escolha inválida.")
     else:
         print("Quartos indisponíveis")
 
-
 def cancelar_reserva(hotel):
     quarto_numero = int(input("Digite o número do quarto da reserva a ser cancelada: "))
     
-    for quarto in hotel.quartos:
-        if quarto.numero == quarto_numero and quarto.esta_reservado:
-            quarto.esta_reservado = False
-            print(f"Reserva do quarto {quarto_numero} foi cancelada.")
-            return
-    
-    print(f"Não foi encontrada reserva para o quarto {quarto_numero}.")
+    if hotel.cancelar_reserva(quarto_numero):
+        print(f"Reserva do quarto {quarto_numero} foi cancelada.")
+    else:
+        print(f"Não foi encontrada reserva para o quarto {quarto_numero}.")
 
 
 
@@ -100,8 +102,10 @@ def main():
 
             else:
                 print("Opção inválida.")
+                os.system("cls")
 
 
 
         except ValueError:
             print('Problema: Digito não correspondente/ Opção Indisponível')
+            os.system("cls")
