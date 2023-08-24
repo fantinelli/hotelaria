@@ -55,3 +55,7 @@ class ApartamentoLuxo(Quartos):
 class ApartamentoMaster(Quartos):
     def __init__(self, numero):
         super().__init__(numero, capacidade=2, preco=400)
+
+class Beneficios(Quartos):
+    def __init__(self, frigobar):
+        
