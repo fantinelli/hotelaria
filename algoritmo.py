@@ -52,5 +52,11 @@ def main():
                 os.system("pause")
                 os.system("cls")
 
+            elif escolha == 3:
+                os.system("cls")
+                reserva()
+                os.system("pause")
+                os.system("cls")
+
         except ValueError:
             print('Problema: Digito não correspondente/ Opção Indisponível')
