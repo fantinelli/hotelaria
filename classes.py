@@ -1,17 +1,31 @@
 class Hotel:
     def __init__(self, nome):
         self.nome = nome
-        self.quartos = []
+        self.quartos = {}
 
     def adicionar_quarto(self, quarto):
-        self.quartos.append(quarto)
+        self.quartos[quarto.numero] = quarto
 
     def listar_quartos_disponiveis(self):
         quartos_disponiveis = []
-        for quarto in self.quartos:
+        for quarto in self.quartos.values():
             if quarto.esta_disponivel():
                 quartos_disponiveis.append(quarto)
         return quartos_disponiveis
+
+    def reservar_quarto(self, numero_quarto):
+        quarto = self.quartos.get(numero_quarto)
+        if quarto and quarto.esta_disponivel():
+            quarto.esta_reservado = True
+            return True
+        return False
+
+    def cancelar_reserva(self, numero_quarto):
+        quarto = self.quartos.get(numero_quarto)
+        if quarto and quarto.esta_reservado:
+            quarto.esta_reservado = False
+            return True
+        return False
 
 
 class Quartos:
